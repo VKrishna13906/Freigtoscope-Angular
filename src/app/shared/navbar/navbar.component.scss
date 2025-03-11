@@ -1,0 +1,21 @@
+.navbar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: #264de4;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 30px;
+}
+
+.profile-icon {
+  cursor: pointer;
+}
+
+.navigationLogo {
+  width: 220px;
+  height: 30px;
+}

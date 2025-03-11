@@ -1,0 +1,25 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures full-page layout */
+    overflow-x: hidden;
+    overflow-y: auto; /* Prevents horizontal scrolling */  
+    scroll-behavior: smooth;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::ng-deep .custom-dropdown-panel {
+  margin-top: 400px !important; /* Moves the dropdown down */
+  z-index: 1000 !important; /* Ensures dropdown appears above other elements */
+}
+

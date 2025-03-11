@@ -1,0 +1,96 @@
+<div class="mainDiv">
+    <div class="dropdownDiv">
+        <div class="divContainer">
+            <mat-form-field appearance="outline" class="outerDropDown">
+                <mat-label>Select Country</mat-label>
+                <mat-select multiple [(ngModel)]="selectedCountryValues" [panelClass]="'custom-dropdown-panel'"
+                    disableOptionCentering (selectionChange)="onCountrySelect()">
+                    <mat-option *ngFor="let option of tempCountryValues" [value]="option.CountryCode">
+                        {{ option.CountryName }}
+                    </mat-option>
+                    <mat-option *ngIf="tempCountryValues.length === 0" [disabled]="true">
+                        No values available
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="outerDropDown">
+                <mat-label>Select City</mat-label>
+                <mat-select multiple [(ngModel)]="selectedCityValues" [panelClass]="'custom-dropdown-panel'"
+                    disableOptionCentering (selectionChange)="onCitySelect()">
+                    <mat-option *ngFor="let option of tempCityValues" [value]="option.CityCode">
+                        {{ option.City }}
+                    </mat-option>
+                    <mat-option *ngIf="tempCityValues.length === 0" [disabled]="true">
+                        No values available
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="outerDropDown">
+                <mat-label>Select Company</mat-label>
+                <mat-select multiple [(ngModel)]="selectedCompanyValues" [panelClass]="'custom-dropdown-panel'"
+                    disableOptionCentering (selectionChange)="onCompanySelect()">
+                    <mat-option *ngFor="let option of tempCompanyValues" [value]="option.CompanyID">
+                        {{ option.Name }}
+                    </mat-option>
+                    <mat-option *ngIf="tempCompanyValues.length === 0" [disabled]="true">
+                        No values available
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="outerDropDown">
+                <mat-label>Select User</mat-label>
+                <mat-select multiple [(ngModel)]="selectedUserValues" [panelClass]="'custom-dropdown-panel'"
+                    disableOptionCentering (selectionChange)="onUserSelect()">
+                    <mat-option *ngFor="let option of tempUserValues" [value]="option.UserID">
+                        {{ option.Name }}
+                    </mat-option>
+                    <mat-option *ngIf="tempUserValues.length === 0" [disabled]="true">
+                        No values available
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <!-- Button -->
+        <div style="display: flex; justify-content: end">
+            <button mat-raised-button color="primary" class="button" (click)="onClear()">Clear</button>
+            <button mat-raised-button color="primary" class="button" (click)="onSubmit()">Submit</button>
+        </div>
+    </div>
+    <div #dataTableContainer id="datatable" class="tables" *ngIf="showDataTable">
+        <table id="example" class="display">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Delegates Names</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of displayedCompanyData; let i = index">
+                    <td>{{ data.CompanyName }}</td>
+                    <td>{{ data.Country }}</td>
+                    <td>{{ data.City }}</td>
+                    <td>
+                        <table>
+                            <tr *ngFor="let user of data.Users">
+                                <td>{{ user.UserName }}</td>
+                                <td>{{ user.EmailID }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5"><button mat-raised-button color="primary" (click)="loadMore()" *ngIf="displayedCompanyData.length < companyData.length">Load More</button></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+        
+</div>

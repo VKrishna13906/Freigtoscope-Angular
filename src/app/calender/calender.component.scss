@@ -1,0 +1,73 @@
+::ng-deep .custom-dropdown {
+  z-index: 1000 !important;
+  /* Ensures dropdown appears above everything */
+  overflow: visible !important;
+}
+
+::ng-deep .mat-select-panel {
+  max-height: 300px !important;
+  /* Prevents dropdown from being too short */
+  overflow-y: auto !important;
+  /* Makes it scrollable */
+}
+
+::ng-deep .cdk-overlay-pane {
+  margin-top: 35px !important;
+  /* Moves dropdown below the select box */
+  margin-left: 30px !important;
+  /* Moves dropdown below the select box */
+}
+
+.outerDropDown {
+  width: 250px;
+}
+
+.divContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 135px;
+  height: 45px;
+  font-size: 15px;
+  margin: 15px 10px 0px 10px;
+}
+
+.dropdownDiv,
+.tables {
+  margin: 20px 0px 20px 0px;
+}
+
+//Tables css
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: start;
+  background-color: darkgray;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+tr {
+  border-bottom: 1px solid lightgray;
+}
+
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nested-table td {
+  text-align: center;
+  padding: 5px;
+  border: none;
+}
